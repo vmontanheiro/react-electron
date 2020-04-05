@@ -1,6 +1,7 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow } = require(`electron`);
-const sourceMapSupport = require(`source-map-support`);
+
+// const sourceMapSupport = require(`source-map-support`);
 const path = require(`path`);
 const url = require(`url`);
 
@@ -12,6 +13,8 @@ const createWindow = () => {
     width: 800,
     height: 600,
     webPreferences: {
+      nodeIntegration: true,
+      nodeIntegrationInWorker: true,
       allowDisplayingInsecureContent: true,
       allowRunningInsecureContent: true,
     },
@@ -37,7 +40,7 @@ const createWindow = () => {
   //   ]
   // },
   if (!IS_DEVELOPMENT) {
-    sourceMapSupport.install();
+    // sourceMapSupport.install();
   }
 
   // Open the DevTools.

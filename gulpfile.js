@@ -5,23 +5,28 @@ const buffer = require(`vinyl-buffer`);
 const browserify = require(`browserify`);
 const sassify = require(`sassify`);
 const babelify = require(`babelify`);
-
+const renderify = require(`electron-renderify`);
 // const IS_PRODUCTION = process.env.NODE_ENV === `production`;
 const dest = `build`;
 const index = `src/index.js`;
 
 const compile = () => {
   const bundler = browserify(index, {
-    debug: true, // write own sourcemaps
     extensions: [`.js`],
-  }).transform(sassify, {
-    base64Encode: false,
-    sourceMap: false,
-    'no-auto-inject': false,
-  });
+    ignoreMissing: true,
+    detectGlobals: false,
+    bare: true,
+    debug: true,
+  })
+    .transform(sassify, {
+      base64Encode: false,
+      sourceMap: false,
+      'no-auto-inject': false,
+    })
+    .transform(babelify);
 
   return bundler
-    .transform(babelify)
+    .transform(renderify)
     .bundle()
     .pipe(source(`bundle.js`))
     .pipe(buffer())
