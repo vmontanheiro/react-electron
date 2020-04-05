@@ -3,7 +3,6 @@ import React from 'react';
 import { useSelector, shallowEqual } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import logoImg from '../../assets/img/icon.png';
 
 const Container = styled.div`
   display: flex;
@@ -51,7 +50,7 @@ const Layout = ({ children }) => {
     <Container>
       <Header>
         {!!username && <Text>{username}</Text>}
-        <img src={logoImg} alt="logo" />
+        <img src="assets/img/icon.png" alt="logo" />
       </Header>
       <Body>{children}</Body>
     </Container>
