@@ -1,0 +1,71 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "plugin:prettier/recommended",
+    "plugin:jsx-a11y/recommended",
+    "prettier/react",
+    "import"
+  ],
+  "plugins": ["react", "react-hooks", "prettier", "html", "jsx-a11y", "import"],
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": true,
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "rules": {
+    "no-underscore-dangle": 0,
+    "no-useless-constructor": 0,
+    "class-methods-use-this": 0,
+    "no-useless-escape": 0,
+    "react-hooks/rules-of-hooks":2,
+    "no-bitwise": 0,
+    "no-param-reassign": 1,
+    "no-prototype-builtins": 1,
+    "no-return-assign": 1,
+    "no-plusplus": 1,
+    "consistent-return": 1,
+    "no-continue": 1,
+    "camelcase": 1,
+    "no-case-declarations": 0,
+    "dot-notation": 1,
+    "import/no-named-as-default-member": 0,
+    "import/named": 0,
+    "import/no-named-as-default": 0,
+    "prefer-destructuring": 0,
+    "react/jsx-filename-extension": 0,
+    "import/prefer-default-export": 0,
+    "import/no-cycle": 0,
+    "no-sequences": 1,
+    "react-hooks/exhaustive-deps": 2,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "all",
+        "singleQuote": true,
+        "printWidth": 100
+      }
+    ],
+    "quotes": ["error", "backtick"]
+  },
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "fetch": false,
+    "navigator": false,
+    "window": false,
+    "chrome": false
+  }
+}

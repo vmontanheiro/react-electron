@@ -1,0 +1,88 @@
+{
+  "name": "locallprint-totem",
+  "version": "0.1.0",
+  "main": "main.js",
+  "author": "Vinícius <vinicius.montanheiro@supero.com.br>",
+  "license": "MIT",
+  "homepage": ".",
+  "private": true,
+  "dependencies": {
+    "node-sass": "^4.13.1",
+    "prop-types": "^15.7.2",
+    "qrcode.react": "^0.9.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-loading": "^2.0.3",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-actions": "^2.6.5",
+    "redux-persist": "^6.0.0",
+    "save-file": "^2.3.1",
+    "socket.io-client": "^2.3.0",
+    "source-map-support": "^0.5.16",
+    "sqs-consumer": "^5.4.0",
+    "styled-components": "^5.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "dev": "NODE_ENV=devlopment electron .",
+    "package-win": "NODE_ENV=production electron-builder build --win --x64"
+  },
+  "build": {
+    "productName": "LocallPrintTotem",
+    "appId": "br.com.supero.locallprint-totem",
+    "files": [
+      "build",
+      "build/static/css/*.css",
+      "build/static/js/*.js",
+      "build/static/media/**",
+      "main.js",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "resources",
+      "output": "release"
+    },
+    "extends": null
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "babel-preset-env": "^1.7.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "aws-sdk": "^2.653.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-babel": "^9.0.0",
+    "eslint-config-import": "^0.13.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
+    "electron": "^8.2.0",
+    "electron-builder": "^22.4.1",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react-hooks": "^3.0.0",
+    "prettier-eslint": "^9.0.1"
+  }
+}
