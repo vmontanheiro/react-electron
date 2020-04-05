@@ -25,8 +25,8 @@ const compile = () => {
     .bundle()
     .pipe(source(`bundle.js`))
     .pipe(buffer())
-    .pipe(sourcemaps.init({ loadMaps: true })) // load browserify's sourcemaps
-    .pipe(sourcemaps.write(`.`)) // write .map files near scripts
+    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(sourcemaps.write(`.`))
     .pipe(gulp.dest(dest));
 };
 
@@ -42,10 +42,12 @@ gulp.task(`js`, () => {
   return compile();
 });
 
-gulp.task(`build`, gulp.series([`js`, `assets`, `public`]));
+const build = () => gulp.series([`js`, `assets`, `public`]);
 
-gulp.task(`dev`, gulp.series(`build`), () => {
-  gulp.watch(index, gulp.series(`build`));
+gulp.task(`build`, build());
+
+gulp.task(`start`, gulp.series(`build`), () => {
+  gulp.watch(index, build());
 });
 
-// gulp.task(`default`, gulp.series(`build`));
+gulp.task(`default`, build());
